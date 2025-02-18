@@ -18,18 +18,16 @@ function App({ loginRequest, navigate }) {
     email: "",
     password: "",
   });
-  const  loginClick = async()=>{
+  const loginClick = async () => {
     const result = await loginRequest(User);
-    if(result.success)
-      {
-        setAutorization(true);
-        console.log('logando');
-        navigate('/Dashboard')
-      }
-    else{
-      setAutorization(false)
-      console.log('Usuario invalido')
-      alert('email ou senha invalido, tente novamente!')
+    if (result.success) {
+      setAutorization(true);
+      console.log("logando");
+      navigate("/Dashboard");
+    } else {
+      setAutorization(false);
+      console.log("Usuario invalido");
+      alert("email ou senha invalido, tente novamente!");
     }
   };
   return (
@@ -40,21 +38,23 @@ function App({ loginRequest, navigate }) {
         </h1>
         <input
           className=" w-fit h-[30px] rounded-2xl px-2 pl-2  border-2 border-blue-600 border-opacity-85 bg-slate-100 outline-none"
-          value= {User.email}
-          onChange ={(e)=>setUser({...User,email: e.target.value})}
+          value={User.email}
+          onChange={(e) => setUser({ ...User, email: e.target.value })}
           type="text"
           placeholder="Email"
         />
         <input
           className=" w-fit h-[30px] rounded-2xl px-2 pl-2  border-2 border-blue-600 border-opacity-85 bg-slate-100 outline-none"
-          value= {User.password}
-          onChange={(e)=>setUser({...User,password:e.target.value})}
+          value={User.password}
+          onChange={(e) => setUser({ ...User, password: e.target.value })}
           type="password"
           placeholder="Password"
         />
         <div className="flex flex-col items-center gap-2 relative">
-          <button className=" w-[100px] h-[25px] bg-blue-600 rounded-xl text-xs mt-5 text-white "
-          onClick={loginClick}>
+          <button
+            className=" w-[100px] h-[25px] bg-blue-600 rounded-xl text-xs mt-5 text-white "
+            onClick={loginClick}
+          >
             LOGIN
           </button>
 
