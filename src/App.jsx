@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react-refresh/only-export-components */
 import "./App.css";
-import { redirect, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { useEffect } from "react";
+
 function withNavigate(Component) {
   return function ComponentNavigate(props) {
     const navigate = useNavigate();
@@ -24,12 +24,13 @@ function App({ loginRequest, navigate }) {
       {
         setAutorization(true);
         console.log('logando');
+        navigate('/Dashboard')
       }
     else{
       setAutorization(false)
       console.log('Usuario invalido')
+      alert('email ou senha invalido, tente novamente!')
     }
-    navigate('/Dashboard')
   };
   return (
     <div className="bg-slate-100 w-screen h-screen justify-center  flex ">
